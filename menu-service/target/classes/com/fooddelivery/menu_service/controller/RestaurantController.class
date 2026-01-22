@@ -1,0 +1,33 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package com.fooddelivery.menu_service.controller;
+
+import com.fooddelivery.menu_service.entity.Restaurant;
+import com.fooddelivery.menu_service.repository.RestaurantRepository;
+import java.util.List;
+import lombok.Generated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping({"/api/restaurants"})
+public class RestaurantController {
+   private final RestaurantRepository restaurantRepo;
+
+   @GetMapping
+   public List<Restaurant> getAllRestaurants() {
+      return this.restaurantRepo.findAll();
+   }
+
+   @PostMapping
+   public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
+      return (Restaurant)this.restaurantRepo.save(restaurant);
+   }
+
+   @Generated
+   public RestaurantController(final RestaurantRepository restaurantRepo) {
+      this.restaurantRepo = restaurantRepo;
+   }
+}
