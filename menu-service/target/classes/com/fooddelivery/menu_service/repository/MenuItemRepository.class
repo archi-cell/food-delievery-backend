@@ -1,0 +1,10 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package com.fooddelivery.menu_service.repository;
+
+import com.fooddelivery.menu_service.entity.MenuItem;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MenuItemRepository extends JpaRepository<MenuItem, Long> {
+   List<MenuItem> findByRestaurantId(Long restaurantId);
+}
