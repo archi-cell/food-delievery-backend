@@ -1,0 +1,17 @@
+
+server:
+  port: 8085
+
+spring:
+  application:
+    name: menu-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/food_menu_db
+    username: root
+    password: Farcicherry@12
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
