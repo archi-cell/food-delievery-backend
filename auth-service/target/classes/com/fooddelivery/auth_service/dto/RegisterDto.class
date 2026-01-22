@@ -1,0 +1,43 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package com.fooddelivery.auth_service.dto;
+
+import lombok.Generated;
+
+public class RegisterDto {
+   private String username;
+   private String email;
+   private String password;
+
+   public RegisterDto() {
+   }
+
+   @Generated
+   public String getUsername() {
+      return this.username;
+   }
+
+   @Generated
+   public String getEmail() {
+      return this.email;
+   }
+
+   @Generated
+   public String getPassword() {
+      return this.password;
+   }
+
+   @Generated
+   public void setUsername(final String username) {
+      this.username = username;
+   }
+
+   @Generated
+   public void setEmail(final String email) {
+      this.email = email;
+   }
+
+   @Generated
+   public void setPassword(final String password) {
+      this.password = password;
+   }
+}
