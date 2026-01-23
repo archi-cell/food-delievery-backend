@@ -1,0 +1,36 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package com.fooddelivery.order_service.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping({"/orders"})
+@CrossOrigin(
+   origins = {"http://localhost:3000"}
+)
+public class OrderController {
+   private List<Map<String, Object>> pastOrders = new ArrayList();
+
+   public OrderController() {
+   }
+
+   @PostMapping
+   public Map<String, Object> placeOrder(@RequestBody Map<String, Object> order) {
+      order.put("status", "Order Placed Successfully!");
+      this.pastOrders.add(order);
+      return order;
+   }
+
+   @GetMapping
+   public List<Map<String, Object>> getPastOrders() {
+      return this.pastOrders;
+   }
+}
