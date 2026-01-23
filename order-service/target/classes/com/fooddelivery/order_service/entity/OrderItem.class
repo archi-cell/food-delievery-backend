@@ -1,0 +1,81 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package com.fooddelivery.order_service.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(
+   name = "order_items"
+)
+public class OrderItem {
+   @Id
+   @GeneratedValue(
+      strategy = GenerationType.IDENTITY
+   )
+   private Long id;
+   private Long menuItemId;
+   private String name;
+   private Double price;
+   private Integer quantity;
+   @ManyToOne(
+      fetch = FetchType.LAZY
+   )
+   @JoinColumn(
+      name = "order_id"
+   )
+   private Order order;
+
+   public OrderItem() {
+   }
+
+   public Long getId() {
+      return this.id;
+   }
+
+   public Long getMenuItemId() {
+      return this.menuItemId;
+   }
+
+   public void setMenuItemId(Long menuItemId) {
+      this.menuItemId = menuItemId;
+   }
+
+   public String getName() {
+      return this.name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public Double getPrice() {
+      return this.price;
+   }
+
+   public void setPrice(Double price) {
+      this.price = price;
+   }
+
+   public Integer getQuantity() {
+      return this.quantity;
+   }
+
+   public void setQuantity(Integer quantity) {
+      this.quantity = quantity;
+   }
+
+   public Order getOrder() {
+      return this.order;
+   }
+
+   public void setOrder(Order order) {
+      this.order = order;
+   }
+}
